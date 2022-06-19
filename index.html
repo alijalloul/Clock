@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <link rel="stylesheet" href="css/style.css">
+    </header>
+    <body>
+        <div class="clock">
+
+            <div class="circle" style="--clr:rgb(0, 255, 40);"><div class="clockAnalog"></div></div>
+            <div class="circle circle2" style="--clr:rgb(250, 247, 46);"><div class="clockAnalog"></div></div>
+            <div class="circle circle3" style="--clr:red;"><div class="clockAnalog"></div></div>
+
+            <span style="--i:1;"><h2>1</h2></span>
+            <span style="--i:2;"><h2>2</h2></span>
+            <span style="--i:3;"><h2>3</h2></span>
+            <span style="--i:4;"><h2>4</h2></span>
+            <span style="--i:5;"><h2>5</h2></span>
+            <span style="--i:6;"><h2>6</h2></span>
+            <span style="--i:7;"><h2>7</h2></span>
+            <span style="--i:8;"><h2>8</h2></span>
+            <span style="--i:9;"><h2>9</h2></span>
+            <span style="--i:10;"><h2>10</h2></span>
+            <span style="--i:11;"><h2>11</h2></span>
+            <span style="--i:12;"><h2>12</h2></span>
+        </div>
+
+        <script>
+            let circles = document.getElementsByClassName('circle');
+
+            setInterval(() => {
+                let day = new Date();
+                let hh = day.getHours() * 30;
+                let mm = day.getMinutes() * 6;
+                let ss = day.getSeconds() * 6;
+
+                let hChange = hh+(mm/12);
+
+                circles[0].style.transform = 'rotateZ('+hChange+'deg)';
+                circles[1].style.transform = 'rotateZ('+mm+'deg)';
+                circles[2].style.transform = 'rotateZ('+ss+'deg)';
+                }
+            );   
+        </script>
+    </body>
+</html>
